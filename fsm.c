@@ -115,7 +115,7 @@ fsmStatus_t fsmProcessEvent(fsmHandle_t* pHandle, uint32_t event, void* pParam) 
     return status;
 }
 
-fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* state) {
+fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* pState) {
     fsmStatus_t status = fsmStatusOk;
     
     if (fsmCheckHandle(pHandle) == fsmStatusOk) {
@@ -126,7 +126,7 @@ fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* state) {
 }
 
 #ifdef HISTORY
-fsmStatus_t fsmHistoryStart(fsmHandle_t* pHandle, fsmStateEvent_t* historyBuffer, uint32_t historyBufferSize) {
+fsmStatus_t fsmHistoryStart(fsmHandle_t* pHandle, fsmStateEvent_t* pHistoryBuffer, uint32_t historyBufferSize) {
     fsmStatus_t status = fsmStatusOk;
     
     if (fsmCheckHandle(pHandle) == fsmStatusOk) {

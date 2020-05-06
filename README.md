@@ -33,7 +33,7 @@ fsmStatus_t fooCallback(void* pParam) {
     return fsmStatusOk;
 }
 
-// Create State/Event Definition
+// Define State/Event
 fsmStateEvent_t fooStateEvent = {
     .currentState = 0,
     .event = 1,
@@ -50,7 +50,7 @@ if (fsmInit(&fsm, buffer, NUM_OF_STATE_EVENTS) == fsmStatusOk) {
     ...
 
     // Start the state machine in a known state.
-    fsmStart(&fsm, testFsmStateInit);
+    fsmStart(&fsm, 0);
 
 } else {
     
@@ -71,7 +71,11 @@ fsmProcessEvent(&fsm, 1, NULL);
 
 ## Enable History Tracking
 
-To enable history tracking, ensure `#define HISTORY` is set. The definition can be found at the top of `fsm.h`
+To enable history tracking, ensure the define below is set. The definition can be found at the top of `fsm.h`
+```c code
+#define HISTORY
+```
+
 
 ```c code
 

@@ -60,16 +60,16 @@ fsmStatus_t fsmDeInit(fsmHandle_t* pHandle);
  * @brief FSM Start at State
  * 
  * @param pHandle FSM Handle
- * @param state 
+ * @param state Staring State of the State Machine
  * @return fsmStatus_t Returns FSM Status
  */
 fsmStatus_t fsmStart(fsmHandle_t* pHandle, uint32_t state);
 
 /**
- * @brief FSM Add State/Event
+ * @brief FSM Add State/Event Structure
  * 
  * @param pHandle FSM Handle
- * @param stateEvent 
+ * @param stateEvent Structure containing State/Event Transitions
  * @return fsmStatus_t Returns FSM Status
  */
 fsmStatus_t fsmAddStateEvent(fsmHandle_t* pHandle, fsmStateEvent_t stateEvent);
@@ -78,8 +78,8 @@ fsmStatus_t fsmAddStateEvent(fsmHandle_t* pHandle, fsmStateEvent_t stateEvent);
  * @brief FSM Process Event
  * 
  * @param pHandle FSM Handle
- * @param event 
- * @param pParam 
+ * @param event New event to process
+ * @param pParam Parameter to pass to the event callback function
  * @return fsmStatus_t Returns FSM Status
  */
 fsmStatus_t fsmProcessEvent(fsmHandle_t* pHandle, uint32_t event, void* pParam);
@@ -88,10 +88,10 @@ fsmStatus_t fsmProcessEvent(fsmHandle_t* pHandle, uint32_t event, void* pParam);
  * @brief FSM Gets Current State
  * 
  * @param pHandle FSM Handle
- * @param state 
+ * @param pState Value returning State Machines state
  * @return fsmStatus_t Returns FSM Status
  */
-fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* state);
+fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* pState);
 
 #ifdef HISTORY
 /**
@@ -102,7 +102,7 @@ fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* state);
  * @param historyBufferSize 
  * @return fsmStatus_t Returns FSM Status
  */
-fsmStatus_t fsmHistoryStart(fsmHandle_t* pHandle, fsmStateEvent_t* historyBuffer, uint32_t historyBufferSize);
+fsmStatus_t fsmHistoryStart(fsmHandle_t* pHandle, fsmStateEvent_t* pHistoryBuffer, uint32_t historyBufferSize);
 
 /**
  * @brief FSM Stop History Tracking
