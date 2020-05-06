@@ -69,6 +69,18 @@ fsmProcessEvent(&fsm, 1, NULL);
 
 ```
 
+## Get Current State of State Machine
+
+```c code
+
+// Create new local state.
+uint32_t state = 0;
+
+// Get State from state machine.
+fsmGetState(&fsm, &state);
+
+```
+
 ## Enable History Tracking
 
 To enable history tracking, ensure the define below is set. The definition can be found at the top of `fsm.h`
@@ -95,17 +107,5 @@ Prints the current state machine history. History is printed from the newest to 
 
 // Print history buffer.
 fsmHistoryPrint(&fsm, printf);
-
-```
-
-## Get Current State of State Machine
-
-```c code
-
-// Create new local state.
-uint32_t state = 0;
-
-// Get State from state machine.
-fsmGetState(&fsm, &state);
 
 ```
