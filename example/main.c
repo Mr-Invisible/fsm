@@ -42,12 +42,22 @@ int main() {
     fsmHistoryStart(&fsm, historyBuffer, 10);
     
     uint32_t state;
+
+    fsmGetState(&fsm, &state);
+
+    printf("Current State: %d\r\n", state);
     
     fsmProcessEvent(&fsm, testFsmEventHello, NULL);
     
     fsmGetState(&fsm, &state);
 
+    printf("Current State: %d\r\n", state);
+
     fsmProcessEvent(&fsm, testFsmEventInit, NULL);
+
+    fsmGetState(&fsm, &state);
+
+    printf("Current State: %d\r\n", state);
     
     fsmHistoryPrint(&fsm, printf);
 
