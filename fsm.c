@@ -119,7 +119,7 @@ fsmStatus_t fsmGetState(fsmHandle_t* pHandle, uint32_t* pState) {
     fsmStatus_t status = fsmStatusOk;
     
     if (fsmCheckHandle(pHandle) == fsmStatusOk) {
-        *state = pHandle->state;
+        *pState = pHandle->state;
     }
     
     return status;
@@ -131,7 +131,7 @@ fsmStatus_t fsmHistoryStart(fsmHandle_t* pHandle, fsmStateEvent_t* pHistoryBuffe
     
     if (fsmCheckHandle(pHandle) == fsmStatusOk) {
         pHandle->flags |= flagHistoryMask;
-        pHandle->history = historyBuffer;
+        pHandle->history = pHistoryBuffer;
         pHandle->historySize = historyBufferSize;
     }
     

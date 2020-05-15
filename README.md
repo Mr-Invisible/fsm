@@ -2,13 +2,15 @@
 
 A simple finite state machine library in C.
 
+This implementation uses an event driven process when transitioning bewteen states.
+
 ## Dependancies
 
 Current dependancies are `stdint.h` and `stdio.h`.
 
 ## Example
 
-see example folder for `main.c`
+see example's [README](/example/README) for more details.
 
 ## Usage
 
@@ -61,6 +63,7 @@ if (fsmInit(&fsm, buffer, NUM_OF_STATE_EVENTS) == fsmStatusOk) {
 ```
 
 ## Proccessing State Machine Events
+
 
 ```c code
 

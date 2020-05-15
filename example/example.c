@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "fsm.h"
+#include "../fsm.h"
 
 typedef enum {
     testFsmStateInit,

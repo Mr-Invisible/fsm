@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-// #define HISTORY
+#define HISTORY
 
 typedef enum {
     fsmStatusOk,
