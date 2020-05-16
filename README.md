@@ -10,7 +10,7 @@ Current dependancies are `stdint.h` and `stdio.h`.
 
 ## Example
 
-see example's [README](/example/README) for more details.
+see example's [README](/example/README.md) for more details.
 
 ## Usage
 
