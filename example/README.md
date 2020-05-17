@@ -2,22 +2,7 @@
 
 Simple finite state machine example.
 
-```mermaid
-    graph LR
-        init((Init<br />State))
-        started((Started<br />State))
-        stopped((Stopped<br />State))
-
-        startingCallback(Event:<br />Staring Callback)
-        stoppingCallback(Event:<br />Stopping Callback)
-        restartingCallback(Event:<br />Restarting Callback)
-        endCallback(Event:<br />End Callback)
-
-        init-->startingCallback-->started
-        started-->stoppingCallback-->stopped
-        stopped-->restartingCallback-->started
-        stopped-->endCallback-->init
-```
+![example state machine](example.jpeg)
 
 ## Requirements
 
