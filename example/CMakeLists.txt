@@ -4,7 +4,7 @@ project(example)
 
 add_subdirectory(
     ../
-    ./source
+    ./libFsm
 )
 
 add_executable(

@@ -2,26 +2,37 @@
 
 A simple finite state machine library in C.
 
-This implementation uses an event driven process when transitioning bewteen states.
+This implementation uses an event driven process.
 
 ## Dependancies
 
 Current dependancies are `stdint.h` and `stdio.h`.
 
-## Example
-
-see example's [README](/example/README.md) for more details.
-
-## Usage
+## Usages
 
 The following sections are provided as a guideline of how to quickly use and interact with the fsm library.
 
-## Basic Initiallization
+### CMake
+
+This library has been formatted for CMake build tools. Below is a simple example showing how to include and link the library to an existing CMake project.
+
+```cmake
+add_subdirectory(
+    <libFsm directory>
+)
+
+target_link_libraries(
+    <TARGET>
+    LINK_PUBLIC
+    libFsm
+)
+```
+
+### Basic Initiallization
 
 This example shows the basic requirements of creating and initiallzing a simple fsm.
 
 ```c code
-
 // Create new local buffer, serves as storage for the state machine.
 fsmStateEvent_t buffer[NUM_OF_STATE_EVENTS];
 
@@ -31,8 +42,7 @@ fsmHandle_t fsm;
 // Creates the external callback function that is called by the state machine when an event is proccessed.
 fsmStatus_t fooCallback(void* pParam) {
     // do something here.
-    // returned status is consumed by the state machine.
-    return fsmStatusOk;
+    return fsmStatusOk; // returned status is consumed by the state machine.
 }
 
 // Define State/Event
@@ -45,7 +55,7 @@ fsmStateEvent_t fooStateEvent = {
 
 // Initiallizing the state machine handle structure.
 if (fsmInit(&fsm, buffer, NUM_OF_STATE_EVENTS) == fsmStatusOk) {
-    
+
     // Add the state/event to the state machine.
     fsmAddStateEvent(&fsm, fooStateEvent);
 
@@ -55,60 +65,49 @@ if (fsmInit(&fsm, buffer, NUM_OF_STATE_EVENTS) == fsmStatusOk) {
     fsmStart(&fsm, 0);
 
 } else {
-    
+
     // Failed to initialize the fsm, determine error and cause.
 
 }
-
 ```
 
-## Proccessing State Machine Events
-
+### Proccessing State Machine Events
 
 ```c code
-
 // Process State Machine Event
 fsmProcessEvent(&fsm, 1, NULL);
-
 ```
 
-## Get Current State of State Machine
+### Get Current State of State Machine
 
 ```c code
-
 // Create new local state.
 uint32_t state = 0;
 
 // Get State from state machine.
 fsmGetState(&fsm, &state);
-
 ```
 
-## Enable History Tracking
+### Enable History Tracking
 
 To enable history tracking, ensure the define below is set. The definition can be found at the top of `fsm.h`
 ```c code
 #define HISTORY
 ```
 
-
 ```c code
-
 // Create new local history buffer, serves as storage for the state machine history.
 fsmStateEvent_t historyBuffer[NUM_OF_STATE_EVENTS_HISTORY];
 
 // Start the state machine history storage.
 fsmHistoryStart(&fsm, historyBuffer, NUM_OF_STATE_EVENTS_HISTORY);
-
 ```
 
-## Print State Machine History
+### Print State Machine History
 
 Prints the current state machine history. History is printed from the newest to oldest.
 
 ```c code
-
 // Print history buffer.
 fsmHistoryPrint(&fsm, printf);
-
 ```
