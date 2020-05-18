@@ -2,15 +2,20 @@ cmake_minimum_required(VERSION 3.0)
 
 project(example)
 
-include_directories(
-    ../../
+add_subdirectory(
+    ../
+    ./source
 )
 
 add_executable(
     example.out
-
-    ${CMAKE_SOURCE_DIR}/../fsm.c
     example.c
+)
+
+target_link_libraries(
+    example.out
+    LINK_PUBLIC
+    libFsm
 )
 
 target_compile_options(
